@@ -15,11 +15,11 @@ def send(msg, duration=0):
 
 ser = serial.Serial(args.port, 9600)
 
-print("Start Rapid Fire Ⓐ ！")
+print("Start Slow Fire Ⓐ ！")
 try:
     while True:
-        sleep(0.02)
-        send('Button A', 0.02)
+        sleep(1)
+        send('Button A', 1)
 except KeyboardInterrupt:
     send('RELEASE')
     ser.close()

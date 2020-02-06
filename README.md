@@ -13,12 +13,26 @@
 
 ### On MacOS
 ```sh
-brew install avr-dude osx-cross/avr/avr-gcc
+brew install avrdude osx-cross/avr/avr-gcc
 git clone --recursive https://github.com/ebith/Switch-Fightstick.git
 cd Switch-Fightstick
 make
 avrdude -pm32u4 -cavr109 -D -P$(ls /dev/tty.usbmodem*) -b57600 -Uflash:w:Joystick.hex # need reset
 
 pip3 install pyserial
-./example/rapid-fire-a-button.py /dev/tty.usbserial*
+./example/rapid-fire-a.py /dev/tty.usbserial*
+```
+
+### On Windows
+1. Install Arduino IDE
+2. Add `C:\Program Files (x86)\Arduino\hardware\tools\avr\bin` to your environment PATH.
+3. Run following. COMx : ex. COM4 -> x = 4
+```cmd
+git clone --recursive https://github.com/ebith/Switch-Fightstick.git
+cd Switch-Fightstick
+make
+avrdude -pm32u4 -cavr109 -D -P COMx -b57600 -Uflash:w:Joystick.hex # need reset
+
+pip3 install pyserial
+./example/rapid-fire-a.py COMx
 ```
