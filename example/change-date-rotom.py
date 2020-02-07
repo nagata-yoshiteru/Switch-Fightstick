@@ -19,10 +19,24 @@ n = 0
 
 try:
     while True:
-        for i in range(0,18):
+        send('Button A', 0.05)
+        sleep(0.4)
+        send('Button A', 0.05)
+        sleep(0.4)
+        send('HAT BOTTOM', 0.09)
+        sleep(0.05)
+        for i in range(0,5):
             send('Button A', 0.05)
             sleep(0.038)
-        sleep(1.45)
+        for i in range(0,10):
+            send('Button B', 0.05)
+            sleep(0.038)
+        for i in range(0,15):
+            send('Button A', 0.05)
+            sleep(0.038)
+        for i in range(0,100):
+            send('Button B', 0.05)
+            sleep(0.038)
         send('Button HOME', 0.09)
         sleep(0.5)
         send('HAT BOTTOM', 0.09)
@@ -49,6 +63,7 @@ try:
         sleep(0.038)
         send('HAT BOTTOM', 0.09)
         sleep(0.038)
+
         send('Button A', 0.09)
         sleep(0.3)
         send('HAT RIGHT', 0.09)
@@ -65,17 +80,29 @@ try:
         sleep(0.038)
         send('Button A', 0.09)
         sleep(0.3)
+
+        send('Button A', 0.09)
+        sleep(0.3)
+        send('HAT LEFT', 0.09)
+        sleep(0.038)
+        send('HAT LEFT', 0.09)
+        sleep(0.038)
+        send('HAT LEFT', 0.09)
+        sleep(0.038)
+        send('HAT TOP', 0.09)
+        sleep(0.038)
+        send('HAT RIGHT', 0.09)
+        sleep(0.038)
+        send('HAT RIGHT', 0.09)
+        sleep(0.038)
+        send('HAT RIGHT', 0.09)
+        sleep(0.038)
+        send('Button A', 0.09)
+        sleep(0.3)
+
         send('Button HOME', 0.09)
         sleep(0.5)
         send('Button HOME', 0.09)
-        sleep(0.8)
-        send('Button B', 0.05)
-        sleep(0.038)
-        send('Button B', 0.05)
-        sleep(0.2)
-        for i in range(0,5):
-            send('Button A', 0.05)
-            sleep(0.038)
         sleep(3)
         print(' ')
         n += 1
