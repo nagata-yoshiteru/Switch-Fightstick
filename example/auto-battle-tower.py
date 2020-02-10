@@ -30,7 +30,6 @@ def send(msg, duration=0):
 
 try:
     while True:
-        sleep(1.2)
         send('Button ZL', 0.1)
         sleep(3)
         send('Button A', 0.1)
