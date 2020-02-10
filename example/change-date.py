@@ -5,15 +5,30 @@ from time import sleep
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--port', default='COM4')
+parser.add_argument('--count', default=0)
 args = parser.parse_args()
+ser = serial.Serial(args.port, 9600)
+n = 0
 
 def send(msg, duration=0):
-    print(msg.replace('Button ', '').replace('HAT ', ''), end=' ', flush=True)
-    ser.write(f'{msg}\r\n'.encode('utf-8'))
-    sleep(duration)
-    ser.write(b'RELEASE\r\n')
-
-ser = serial.Serial(args.port, 9600)
+    global ser
+    try:
+        ser.write(f'{msg}\r\n'.encode('utf-8'))
+        print(msg.replace('Button ', '').replace('HAT ', '').replace('LY MIN', '△ ').replace('LY MAX', '▽ ').replace('LX MIN', '◁').replace('LX MAX', '▷'), end=' ', flush=True)
+        sleep(duration)
+        ser.write(b'RELEASE\r\n')
+    except serial.serialutil.SerialException:
+        while True:
+            print("Reconnecting... ", end=' ', flush=True)
+            try:
+                sleep(0.4)
+                ser = serial.Serial(args.port, 9600)
+                print("Success.")
+                sleep(0.1)
+                send(msg, duration)
+                break
+            except:
+                print("Faild. Retrying...")
 
 try:
     while True:
@@ -64,6 +79,12 @@ try:
         send('Button HOME', 0.09)
         sleep(1)
         print(' ')
+        n += 1
+        if n == int(args.count):
+            send('RELEASE')
+            ser.close()
+            break
+
 except KeyboardInterrupt:
     send('RELEASE')
     ser.close()
