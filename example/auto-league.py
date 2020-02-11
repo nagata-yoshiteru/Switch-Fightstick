@@ -33,7 +33,8 @@ try:
         for i in range(0,14):
             send('Button A', 0.04)
             sleep(0.04)
-        sleep(0.23)
+        send('LY MIN', 0.22)
+        sleep(0.04)
         send('LY MIN', 0.55)
         sleep(0.04)
         # send('Button A', 0.04)
