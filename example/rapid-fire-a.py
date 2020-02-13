@@ -12,7 +12,6 @@ def send(msg, duration=0):
     global ser
     try:
         ser.write(f'{msg}\r\n'.encode('utf-8'))
-        print(msg.replace('Button ', '').replace('HAT ', '').replace('LY MIN', '△ ').replace('LY MAX', '▽ ').replace('LX MIN', '◁').replace('LX MAX', '▷'), end=' ', flush=True)
         sleep(duration)
         ser.write(b'RELEASE\r\n')
     except serial.serialutil.SerialException:

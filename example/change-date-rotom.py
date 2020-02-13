@@ -41,10 +41,10 @@ try:
         for i in range(0,5):
             send('Button A', 0.05)
             sleep(0.038)
-        for i in range(0,15):
+        for i in range(0,10):
             send('Button B', 0.05)
             sleep(0.038)
-        for i in range(0,15):
+        for i in range(0,20):
             send('Button A', 0.05)
             sleep(0.038)
         for i in range(0,100):
@@ -64,11 +64,11 @@ try:
         sleep(0.038)
         send('Button A', 0.09)
         sleep(0.8)
-        send('LY MAX', 1.2)
+        send('LY MAX', 1.25)
         sleep(0.038)
         send('Button A', 0.09)
         sleep(0.1)
-        send('LY MAX', 0.5)
+        send('LY MAX', 0.55)
         sleep(0.038)
         send('Button A', 0.09)
         sleep(0.15)
