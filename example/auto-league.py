@@ -12,6 +12,7 @@ def send(msg, duration=0):
     global ser
     try:
         ser.write(f'{msg}\r\n'.encode('utf-8'))
+        print(msg.replace('Button ', '').replace('HAT ', '').replace('LY MIN', '△ ').replace('LY MAX', '▽ ').replace('LX MIN', '◁').replace('LX MAX', '▷'), end=' ', flush=True)
         sleep(duration)
         ser.write(b'RELEASE\r\n')
     except serial.serialutil.SerialException:
@@ -27,11 +28,24 @@ def send(msg, duration=0):
             except:
                 print("Faild. Retrying...")
 
-print("Start Rapid Fire Ⓐ ！")
 try:
     while True:
-        sleep(0.02)
-        send('Button A', 0.02)
+        for i in range(0,14):
+            send('Button A', 0.04)
+            sleep(0.04)
+        send('LY MIN', 0.22)
+        sleep(0.04)
+        send('LY MIN', 0.55)
+        sleep(0.04)
+        # send('Button A', 0.04)
+        # sleep(0.04)
+        # send('Button B', 0.04)
+        # sleep(0.04)
+        # send('Button B', 0.04)
+        # sleep(0.04)
+        # send('Button B', 0.04)
+        # sleep(0.04)
+        print(' ')
 except KeyboardInterrupt:
     send('RELEASE')
     ser.close()
