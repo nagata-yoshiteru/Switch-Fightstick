@@ -31,7 +31,7 @@ def send(msg, duration=0):
 try:
     while True:
         send('Button ZL', 0.05)
-        sleep(1.65)
+        sleep(1.55)
         send('Button A', 0.03)
         sleep(0.02)
         send('Button A', 0.03)
@@ -43,13 +43,13 @@ try:
         send('LY MIN', 0.05)
         sleep(0.75)
         send('Button ZL', 0.05)
-        sleep(1.65)
+        sleep(1.55)
         send('Button A', 0.03)
         sleep(0.02)
         send('Button A', 0.03)
         sleep(1.15)
         send('Button ZL', 0.05)
-        sleep(1.65)
+        sleep(1.55)
         send('Button A', 0.03)
         sleep(0.02)
         send('Button A', 0.03)
@@ -65,7 +65,7 @@ try:
         send('LY MIN', 0.05)
         sleep(0.75)
         send('Button ZL', 0.05)
-        sleep(1.65)
+        sleep(1.55)
         print(' ')
 except KeyboardInterrupt:
     send('RELEASE')
